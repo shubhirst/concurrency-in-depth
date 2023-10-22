@@ -53,8 +53,6 @@ def count_primes():
     print(f'{threading.current_thread().name} took {time.time()-st} seconds]')
 
 if __name__ == '__main__':
-    print(f'Found {os.cpu_count()} cores on the system')
-    print(f'Process is using {multiprocessing.cpu_count()} cores')
     start = time.time()
     batch_size = int(MAX_NUM/NUM_THREADS)
     all_threads = []
@@ -63,6 +61,7 @@ if __name__ == '__main__':
         all_threads.append(th)
     for th in all_threads:
         th.start()
+    for th in all_threads:
         th.join()
 
     print(f'Found {total_primes} primes till {MAX_NUM} in {time.time()-start} seconds')

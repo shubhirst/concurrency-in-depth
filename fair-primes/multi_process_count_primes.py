@@ -27,9 +27,6 @@ def count_primes(count, start, end_exclusive):
     print(f'{threading.current_thread().name} completed range [{start}, {end_exclusive}) in {time.time()-st} seconds]')
 
 if __name__ == '__main__':
-    print(f'Found {os.cpu_count()} cores on the system')
-    print(f'Process is using {multiprocessing.cpu_count()} cores')
-    shared_q = multiprocessing.Queue()
     start = time.time()
     batch_size = int(MAX_NUM/NUM_THREADS)
     all_processes = []

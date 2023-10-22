@@ -4,7 +4,7 @@ import threading
 import multiprocessing
 import os
 
-MAX_NUM = 1000000
+MAX_NUM = 10000000
 NUM_THREADS = 10
 
 global total_primes
@@ -33,7 +33,7 @@ def count_primes(start, end_exclusive):
     st = time.time()
     for i in range(start, end_exclusive):
         if is_prime(i):
-            atomic_update_total_primes() + 1
+            atomic_update_total_primes()
     print(f'{threading.current_thread().name} completed range [{start}, {end_exclusive}) in {time.time()-st} seconds]')
 
 if __name__ == '__main__':
